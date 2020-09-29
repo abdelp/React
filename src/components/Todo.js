@@ -1,5 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
+import { connect } from 'react-redux';
+import { toggleTodo } from '../redux/actions';
 
 const Todo = ({ todo }) => (
   <li
@@ -18,4 +20,7 @@ const Todo = ({ todo }) => (
   </li>
 );
 
-export default Todo;
+export default connect(
+  null,
+  { toggleTodo }
+)(Todo);
