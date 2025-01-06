@@ -11,6 +11,7 @@
     "test": "playwright test"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.62.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-toastify": "^11.0.2"
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@eslint/js": "^9.13.0",
     "@playwright/test": "^1.48.2",
+    "@tanstack/eslint-plugin-query": "^5.62.16",
     "@types/node": "^22.8.6",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
