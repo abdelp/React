@@ -9,6 +9,7 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import axios from "axios";
 
 const queryClient = new QueryClient();
 
@@ -16,10 +17,10 @@ function Example() {
   const { isPending, error, data, isFetching } = useQuery({
     queryKey: ["repoData"],
     queryFn: async () => {
-      const response = await fetch(
+      const response = await axios.get(
         "https://api.github.com/repos/TanStack/query"
       );
-      return await response.json();
+      return await response.data;
     },
   });
 
