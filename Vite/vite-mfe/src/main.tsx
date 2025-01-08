@@ -3,7 +3,6 @@ import "./index.css";
 import App from "./App";
 import singleSpaReact from "single-spa-react";
 import React from "react";
-
 import ReactDOMClient from "react-dom/client";
 
 declare global {
