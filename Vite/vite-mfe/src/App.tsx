@@ -1,6 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import "@/index.css";
 import "@/App.css";
 import { Login } from "./components/login/login";
 import { sum } from "@/helpers/sum";
@@ -10,6 +11,7 @@ function App() {
   console.log(sum(1, 2));
   return (
     <>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

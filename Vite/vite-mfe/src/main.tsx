@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import "./index.css";
 import App from "@/App";
 import singleSpaReact from "single-spa-react";
-// import singleSpaCss from "single-spa-css";
+import singleSpaCss from "single-spa-css";
 import React from "react";
 import ReactDOMClient from "react-dom/client";
 
@@ -17,9 +17,9 @@ if (window.__IN_SINGLE_SPA__) {
   (window as any).__webpack_public_path__ = window.__IN_SINGLE_SPA__;
 }
 
-// const cssLifecycles = singleSpaCss({
-//   cssUrls: ["http://localhost:5173/dist/vite-mfe.css"],
-// });
+const cssLifecycles = singleSpaCss({
+  cssUrls: ["http://localhost:5173/microfrontend.css"],
+});
 
 const lifecycles = singleSpaReact({
   React,
@@ -41,8 +41,8 @@ const lifecycles = singleSpaReact({
   },
 });
 
-export const bootstrap = [lifecycles.bootstrap];
+export const bootstrap = [cssLifecycles.bootstrap, lifecycles.bootstrap];
 
-export const mount = [lifecycles.mount];
+export const mount = [cssLifecycles.mount, lifecycles.mount];
 
-export const unmount = [lifecycles.unmount];
+export const unmount = [cssLifecycles.unmount, lifecycles.unmount];

@@ -4,7 +4,6 @@ import fs, { readFileSync } from "fs";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import resolve from "@rollup/plugin-node-resolve";
-// import { exec } from "child_process";
 
 const spaConfig = JSON.parse(readFileSync(path.resolve("spa.config"), "utf8"));
 
@@ -34,6 +33,7 @@ export default async () => {
     },
     build: {
       cssCodeSplit: false,
+      cssTarget: "es2015",
       watch: {
         exclude: ["node_modules"],
       },
@@ -83,5 +83,14 @@ export default async () => {
       sourcemap: projectConfig.sourceMap,
     },
     preview: serverConfig,
+    // Shared Options
+    // Unless noted, the options in this section are applied to all dev, build, and preview.
+    root: ".",
+    base: "/",
+    mode: "development",
+    define: {
+      __APP_VERSION: JSON.stringify("v1.0.0"),
+      __API_URL__: "window.__backend_api_url",
+    },
   });
 };
