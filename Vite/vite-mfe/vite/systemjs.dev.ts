@@ -4,6 +4,7 @@ import fs, { readFileSync } from "fs";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import resolve from "@rollup/plugin-node-resolve";
+import tailwindcss from "@tailwindcss/vite";
 
 const spaConfig = JSON.parse(readFileSync(path.resolve("spa.config"), "utf8"));
 
@@ -23,7 +24,7 @@ export default async () => {
   };
 
   return defineConfig({
-    plugins: [react(), tsconfigPaths()],
+    plugins: [react(), tsconfigPaths(), tailwindcss()],
     css: {
       preprocessorOptions: {
         scss: {
