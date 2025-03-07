@@ -6,7 +6,7 @@ A single-spa registered application is everything that a normal SPA is, except t
 
 **In a single-spa world, your SPA contains many registered applications, where each has its own framework?**
 
-- [ ] Yes
+- [x] Yes
 - [ ] No
 
 **Do registered applications have their own client-side routing and their own frameworks/libraries?**
