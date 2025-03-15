@@ -1,7 +1,7 @@
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import fs, { readFileSync } from "fs";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import resolve from "@rollup/plugin-node-resolve";
 import tailwindcss from "@tailwindcss/vite";
@@ -15,13 +15,14 @@ const projectConfig = {
   minify: false,
 };
 
-export default async () => {
+export default async ({ mode }) => {
   const serverConfig = {
     port: projectConfig.port,
     strictPort: true,
     open: false,
     host: projectConfig.host,
   };
+  const env = loadEnv(mode, process.cwd(), "");
 
   return defineConfig({
     plugins: [react(), tsconfigPaths(), tailwindcss()],
@@ -92,6 +93,10 @@ export default async () => {
     define: {
       __APP_VERSION: JSON.stringify("v1.0.0"),
       __API_URL__: "window.__backend_api_url",
+      "process.env.ISSUER": JSON.stringify(env.ISSUER),
+      "process.env.CLIENT_ID": JSON.stringify(env.CLIENT_ID),
+      "process.env.REDIRECT_URI": JSON.stringify(env.REDIRECT_URI),
+      "process.env.PKCE": JSON.stringify(env.PKCE),
     },
   });
 };
