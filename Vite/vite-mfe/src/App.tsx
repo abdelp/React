@@ -6,16 +6,10 @@ import "@/App.css";
 import { sum } from "@/helpers/sum";
 import Routes from "./components/Routes";
 import { BrowserRouter as Router } from "react-router-dom";
-import { oktaAuth } from "./okta-auth";
-import { Security } from "@okta/okta-react";
 
 function App() {
   // const [count, setCount] = useState(0);
   console.log(sum(1, 2));
-  // const history = useNavigate();
-  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    // history.(toRelativeUrl(originalUri || "/", window.location.origin));
-  };
 
   return (
     <>
@@ -41,9 +35,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <Login /> */}
-      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
-        <Routes />
-      </Security>
+      <Routes />
     </>
   );
 }

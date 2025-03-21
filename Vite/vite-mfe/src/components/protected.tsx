@@ -1,7 +1,7 @@
 const Protected = () => {
   return (
     <>
-      <h1 className="page-header">Protected</h1>
+      <h1 className="page-header">Not Protected</h1>
     </>
   );
 };
