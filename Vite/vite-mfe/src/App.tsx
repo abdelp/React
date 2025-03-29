@@ -6,13 +6,16 @@ import "@/App.css";
 import { sum } from "@/helpers/sum";
 import Routes from "./components/Routes";
 import { BrowserRouter as Router } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   // const [count, setCount] = useState(0);
   console.log(sum(1, 2));
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -36,7 +39,7 @@ function App() {
       </p>
       <Login /> */}
       <Routes />
-    </>
+    </QueryClientProvider>
   );
 }
 

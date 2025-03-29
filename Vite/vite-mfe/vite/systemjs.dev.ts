@@ -97,6 +97,8 @@ export default async ({ mode }) => {
       "process.env.CLIENT_ID": JSON.stringify(env.CLIENT_ID),
       "process.env.REDIRECT_URI": JSON.stringify(env.REDIRECT_URI),
       "process.env.PKCE": JSON.stringify(env.PKCE),
+      "process.env.RAPIDAPI_KEY": JSON.stringify(env.RAPIDAPI_KEY),
+      "process.env.RAPIDAPI_HOST": JSON.stringify(env.RAPIDAPI_HOST),
     },
   });
 };
