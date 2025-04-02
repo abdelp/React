@@ -5,8 +5,6 @@ const BASE_URL =
   "https://streaming-availability.p.rapidapi.com/countries?output_language=en";
 
 export const useGetMovies = () => {
-  console.log(process.env.RAPIDAPI_KEY);
-  console.log(process.env.RAPIDAPI_HOST);
   const { data, isLoading, isError } = useQuery({
     queryKey: ["movies"],
     queryFn: async () => {
