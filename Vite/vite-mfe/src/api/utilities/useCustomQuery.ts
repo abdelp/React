@@ -10,7 +10,7 @@ export interface CustomQueryOptions {
 }
 
 const useCustomQuery = (options: CustomQueryOptions) => {
-  const customQuery = useQuery({
+  return useQuery({
     queryKey: [options.url, { ...options.params }],
     queryFn: async function fetchResult() {
       const res = await axios[options.method](options.url, {
@@ -25,8 +25,6 @@ const useCustomQuery = (options: CustomQueryOptions) => {
     enabled: options?.queryClientOptions?.enabled ?? true,
     ...options.queryClientOptions,
   });
-
-  return customQuery;
 };
 
 export { useCustomQuery };
