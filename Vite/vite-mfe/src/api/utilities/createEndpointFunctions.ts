@@ -16,7 +16,7 @@ export const createEndpointFunctions = (
           url: `${baseUrl}/${endpoint.url}`,
           method: endpoint.method,
           headers: endpoint.headers,
-          params,
+          params: { ...(endpoint.params || {}), ...(params || {}) },
           queryClientOptions: options,
         });
       };
