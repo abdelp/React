@@ -22,8 +22,8 @@ const useCustomQuery = (options: CustomQueryOptions) => {
     },
 
     staleTime: 1000 * 60 * 1, // 1 minute
-    enabled: options?.queryClientOptions?.enabled ?? true,
     ...options.queryClientOptions,
+    enabled: options?.queryClientOptions?.enabled ?? true,
   });
 };
 
