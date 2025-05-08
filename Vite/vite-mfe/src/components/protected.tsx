@@ -6,7 +6,7 @@ const Protected = () => {
   return (
     <>
       <h1 className="page-header">Not Protected</h1>
-      {Object.keys(data).map((key) => {
+      {Object.keys(data || {}).map((key) => {
         const { countryCode, name } = data[key];
         return (
           <div key={key}>

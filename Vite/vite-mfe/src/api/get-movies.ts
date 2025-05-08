@@ -1,23 +1,5 @@
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
-
-const BASE_URL =
-  "https://streaming-availability.p.rapidapi.com/countries?output_language=en";
+import { endpointFunctions } from "./endpoints";
 
 export const useGetMovies = () => {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["movies"],
-    queryFn: async () => {
-      const response = await axios.get(BASE_URL, {
-        headers: {
-          "x-rapidapi-key": process.env.RAPIDAPI_KEY,
-          "x-rapidapi-host": process.env.RAPIDAPI_HOST,
-        },
-      });
-      return response.data;
-    },
-    placeholderData: { ar: { countryCode: "ar", name: "Argentina" } },
-  });
-
-  return { data, isLoading, isError };
+  return endpointFunctions.getMovies();
 };
