@@ -5,7 +5,7 @@ export interface CustomQueryOptions {
   url: string;
   method: "get" | "post" | "put" | "delete";
   queryClientOptions?: UseQueryOptions;
-  params?: Record<string, any>;
+  params?: Record<string, unknown>;
   headers?: Record<string, string | undefined>;
 }
 
