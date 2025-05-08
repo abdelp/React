@@ -3,7 +3,7 @@
 // import viteLogo from "/vite.svg";
 import "@/index.css";
 import "@/App.css";
-import { sum } from "@/helpers/sum";
+
 import Routes from "./components/Routes";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -12,7 +12,6 @@ const queryClient = new QueryClient();
 
 function App() {
   // const [count, setCount] = useState(0);
-  console.log(sum(1, 2));
 
   return (
     <QueryClientProvider client={queryClient}>
